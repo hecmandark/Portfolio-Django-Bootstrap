@@ -129,11 +129,11 @@ if not DEBUG:
     # and renames the files with unique names for each version to support long-term caching
     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-MEDIA_URL= '/public/'
+""" MEDIA_URL= '/public/'
 MEDIA_ROOT= BASE_DIR / "media"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-]
+] """
 
 
 # Default primary key field type
