@@ -45,16 +45,6 @@ To run the project locally:
 6. Start the development server:
    python manage.py runserver
 
-📁 Project Structure
---------------------
-Portfolio-Django-Bootstrap/
-│
-├── portfolio/           -> Main app
-├── templates/           -> HTML templates
-├── static/              -> Static files (CSS, JS, images) 
-├── manage.py
-└── requirements.txt
-
 🧩 How to Use
 -------------
 - Add your own projects and content through the Django admin panel
