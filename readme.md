@@ -1,7 +1,7 @@
 Portfolio Django + Bootstrap
 ============================
 
-[](Screenshot.png)
+![](Screenshot.png)
 
 This project is a personal portfolio website built with Django and Bootstrap. 
 It is designed to showcase your skills, projects, and contact information 
