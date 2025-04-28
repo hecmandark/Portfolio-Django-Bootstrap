@@ -92,7 +92,7 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 DATABASES = {
     "default": dj_database_url.config(
-        default="postgresql://portfolio_uu8d_user:5s6mKcGpEJI7mtxio40uMy5L0lcjLcqg@dpg-cvsk6kq4d50c73dbnkn0-a.oregon-postgres.render.com/portfolio_uu8d",
+        default=os.environ.get("DATABASE_URL"),
         conn_max_age=600,
     )
 }
