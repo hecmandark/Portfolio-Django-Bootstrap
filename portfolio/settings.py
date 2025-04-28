@@ -143,6 +143,8 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
+DEBUG = os.environ.get("DEBUG", "False") == "True"
+
 if not DEBUG:
     SECURE_HSTS_SECONDS = 31536000  # 1 año
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
