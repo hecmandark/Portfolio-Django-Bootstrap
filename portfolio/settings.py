@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-s*=*^wvygth=n&+pyww+j81y=f8z9s9z)s%_kc)#ihjgw!d)m5'
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "default-insecure-key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -87,11 +87,16 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 
+
 DATABASES = {
-    "default": dj_database_url.config(
-        default=os.getenv("DATABASE_URL"),
-        conn_max_age=600,
-    )
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.environ["PGDATABASE"],
+        "USER": os.environ["PGUSER"],
+        "PASSWORD": os.environ["PGPASSWORD"],
+        "HOST": os.environ["PGHOST"],
+        "PORT": os.environ["PGPORT"],
+    }
 }
 
 
@@ -134,9 +139,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
