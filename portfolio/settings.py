@@ -16,7 +16,7 @@ import os
 import dj_database_url
 from dotenv import load_dotenv
 
-load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,6 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "default-insecure-key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -90,9 +91,7 @@ WSGI_APPLICATION = "portfolio.wsgi.application"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 
-DATABASES = {
-    "default": dj_database_url.config(default=os.getenv("DATABASE_URL"))
-}
+DATABASES = {"default": dj_database_url.config(default=os.environ.get("DATABASE_URL"))}
 
 
 # Password validation
@@ -137,6 +136,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 
+
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
 if not DEBUG:
@@ -159,4 +159,7 @@ STORAGES = {
     },
 }
 
-CSRF_TRUSTED_ORIGINS = ["http://*", "portfolio-production-428c.up.railway.app"]
+CSRF_TRUSTED_ORIGINS = [
+    "https://portfolio-production-428c.up.railway.app",  
+    "http://localhost:8000",
+]
