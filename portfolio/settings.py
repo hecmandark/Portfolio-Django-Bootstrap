@@ -27,10 +27,7 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "default-insecure-key")
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-ALLOWED_HOSTS = [
-    "localhost",
-    "127.0.0.1",
-]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "portfolio-production-428c.up.railway.app"]
 
 
 RAILWAY_PUBLIC_DOMAIN = os.environ.get("RAILWAY_PUBLIC_DOMAIN")
@@ -85,8 +82,6 @@ WSGI_APPLICATION = "portfolio.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
-
 
 
 DATABASES = {
